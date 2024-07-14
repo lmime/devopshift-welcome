@@ -6,10 +6,12 @@ pipeline {
     CREDENTIALS_ID='evgenil'
   }
   agent any
-  stage('Lint/Test') {
-    steps {
-      script {
-        sh 'docker build --target build --tag ${IMAGE_NAME}:${VERSION} -f welcome/app/bookinfo/src/ratings/Dockerfile welcome/app/bookinfo/src/ratings/'
+  stages {
+    stage('lint-test') {
+      steps {
+        script {
+          sh 'docker build --target build --tag ${IMAGE_NAME}:${VERSION} -f welcome/app/bookinfo/src/ratings/Dockerfile welcome/app/bookinfo/src/ratings/'
+        }
       }
     }
   }
