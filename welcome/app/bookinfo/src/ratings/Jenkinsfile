@@ -1,0 +1,16 @@
+pipeline {
+  environment {
+    IMAGE_NAME='productpage'
+    VERSION="v${env.BUILD_NUMBER}"
+    REPO='evgenil'
+    CREDENTIALS_ID='evgenil'
+  }
+  agent any
+  stage('Lint/Test') {
+    steps {
+      script {
+        sh 'docker build --target build --tag ${IMAGE_NAME}:${VERSION} -f welcome/app/bookinfo/src/ratings/Dockerfile welcome/app/bookinfo/src/ratings/'
+      }
+    }
+  }
+}
