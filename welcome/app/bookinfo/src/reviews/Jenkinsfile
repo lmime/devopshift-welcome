@@ -1,0 +1,19 @@
+pipeline {
+  environment {
+    IMAGE_NAME='productpage'
+    VERSION="v${env.BUILD_NUMBER}"
+    REPO='evgenil'
+    CREDENTIALS_ID='evgenil'
+    SNYK_TOKEN=''
+  }
+  agent any
+  stages {
+    stage('Security') {
+      steps {
+        script {
+          sh 'docker build --target security --build-arg SNYK_TOKEN=${SNYK_TOKEN} --tag ${REPO}/${IMAGE_NAME}:${VERSION}-security -f welcome/app/bookinfo/src/reviews/Dockerfile welcome/app/bookinfo/src/reviews/'
+        }
+      }
+    }
+  }
+}
