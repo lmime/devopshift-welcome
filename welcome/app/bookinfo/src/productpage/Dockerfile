@@ -4,7 +4,7 @@ COPY requirements.txt ./
 RUN pip3 install -vvv --require-hashes --no-cache-dir -r requirements.txt
 
 COPY test-requirements.txt ./ 
-RUN pip3 install --no-cache -dir --require-hashes -r test-requirements.txt
+RUN pip3 install --no-cache-dir --require-hashes -r test-requirements.txt
 
 COPY productpage.py /opt/microservices/
 COPY templates /opt/microservices/templates
