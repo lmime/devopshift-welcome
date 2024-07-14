@@ -1,11 +1,10 @@
-environment{
-    IMAGE_NAME='productpage'
-    VERSION="v${env.BUILD_NUMBER}"
-    REPO='productpage'
-    CREDENTIALS_ID='evgenil'
-}
-
 pipeline {
+    environment {
+        IMAGE_NAME='productpage'
+        VERSION="v${env.BUILD_NUMBER}"
+        REPO='productpage'
+        CREDENTIALS_ID='evgenil'
+    }
     agent any
     stages {
         stage('Build') {
