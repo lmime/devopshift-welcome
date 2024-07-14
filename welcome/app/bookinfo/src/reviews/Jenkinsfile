@@ -4,7 +4,7 @@ pipeline {
     VERSION="v${env.BUILD_NUMBER}"
     REPO='evgenil'
     CREDENTIALS_ID='evgenil'
-    SNYK_TOKEN='snyk'
+    SNYK_TOKEN='evgeni.liapustin'
   }
   agent any
   stages {
