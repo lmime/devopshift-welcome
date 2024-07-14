@@ -2,7 +2,7 @@ pipeline {
     environment {
         IMAGE_NAME='productpage'
         VERSION="v${env.BUILD_NUMBER}"
-        REPO='productpage'
+        REPO='evgenil'
         CREDENTIALS_ID='evgenil'
     }
     agent any
@@ -11,7 +11,7 @@ pipeline {
             steps {
                 script {
                     //BuildtheDockerimageforthebuildstage
-                    sh'docker build --target build --tag ${IMAGE_NAME}:${VERSION}-build -f welcome/app/bookinfo/src/productpage/Dockerfile .'
+                    sh'docker build --target build --tag ${IMAGE_NAME}:${VERSION}-build -f welcome/app/bookinfo/src/productpage/Dockerfile welcome/app/bookinfo/src/productpage/'
                 }
             }
         }
@@ -19,7 +19,7 @@ pipeline {
             steps {
                 script {
                     //BuildandtesttheDockerimage
-                    sh'docker build --target test --tag ${IMAGE_NAME}:${VERSION}-test -f welcome/app/bookinfo/src/productpage/Dockerfile .'
+                    sh'docker build --target test --tag ${IMAGE_NAME}:${VERSION}-test -f welcome/app/bookinfo/src/productpage/Dockerfile welcome/app/bookinfo/src/productpage/'
                     sh'docker run --rm ${IMAGE_NAME}:${VERSION}-test'
                 }
             }
