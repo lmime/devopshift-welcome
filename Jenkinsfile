@@ -41,6 +41,13 @@ pipeline {
         }
       }
     }
-    
+    stage('Security') {
+      steps {
+        script {
+          sh 'docker build --target security --build-arg SNYK_TOKEN=${SNYK_TOKEN} --tag ${REPO}/${IMAGE_NAME}:${VERSION}-security -f welcome/app/bookinfo/src/reviews/Dockerfile welcome/app/bookinfo/src/reviews/'
+          sh 'docker run --rm ${REPO}/${IMAGE_NAME}:${VERSION}-security'
+        }
+      }
+    }
   }
 }
