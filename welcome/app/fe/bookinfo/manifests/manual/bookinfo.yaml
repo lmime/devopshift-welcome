@@ -132,7 +132,7 @@ metadata:
     app: reviews
     version: v1
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: reviews
@@ -212,7 +212,7 @@ metadata:
     app: reviews
     version: v3
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: reviews
