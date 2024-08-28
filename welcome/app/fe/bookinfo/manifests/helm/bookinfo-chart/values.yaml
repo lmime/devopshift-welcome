@@ -5,15 +5,19 @@ image:
   pullPolicy: IfNotPresent
 
 details:
+  replicas: 2
   image: docker.io/istio/examples-bookinfo-details-v1
 
 ratings:
+  replicas: 2
   image: docker.io/istio/examples-bookinfo-ratings-v1
 
 reviews:
+  replicas: 2
   image: docker.io/istio/examples-bookinfo-reviews-v1
 
 productpage:
+  replicas: 2
   image: docker.io/istio/examples-bookinfo-productpage-v1
 
 service:
